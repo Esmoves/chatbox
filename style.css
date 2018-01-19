@@ -1,0 +1,50 @@
+body{
+	background-color: AliceBlue;
+	font-family: sans-serif;
+}
+
+.hoofdmenu li{
+	list-style-type: none;
+	float: left;
+	border: 2px dotted blue;
+	width: 100px;
+	margin:0;
+	padding:0;
+}
+
+.hoofdmenu p{
+	margin:0;
+	padding:0;
+	text-align: center;
+}
+
+a{
+	text-decoration: none;
+	color:black;
+}
+
+#chatbox{
+	background-color: LightCyan;
+	width: 400px;
+	height: 300px;
+	border: 1px solid grey; 
+	padding: 10px;
+}
+
+#chatbox p{
+
+}
+
+label{
+	margin: 5px;
+	width: 100px;
+}
+
+input{
+	margin: 5px;
+}
+
+textarea{
+	margin: 5px;
+	padding: 10px;
+}

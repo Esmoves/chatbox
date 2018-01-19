@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN'>
+
+<html xmlns='http://www.w3.org/1999/xhtml' xml:lang='nl' lang='nl'>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+    <meta name="description" content="Chatt app by Esmeralda Tijhoff" />  
+    <meta name="keywords" content="" />
+    <meta name="author" content="A.E.Tijhoff" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+
+    <link rel='stylesheet' href='./style.css' type='text/css' /> 
+    <script src="./script3.js"></script>
+
+    <!-- smooth scrolling plugin -->
+    <script src="http://code.jquery.com/jquery-3.0.0.min.js"></script>
+    <script src="./smooth-scroll.js"></script>
+
+   <title>Chatt App</title>
+</head>
+<body>
+
+   <div id="container">
+      <div class='titel'>
+
+        <h1 class='titel'>
+            Chatt App
+        </h1>
+
+      </div>
+
+
+    <!-- menu  boven -->
+
+    <div class='hoofdmenu'>
+      <ul>
+        <li class='hmenu1'>
+          <p class='hmenu'> 
+            <a href='index.php' class='hmenu'>home</a>
+          </p>
+        </li>
+
+        <li class='hmenu'>
+          <p class='hmenu'> 
+            <a href='mycontacts.php' class='hmenu'>contacts</a>
+          </p>
+        </li>
+
+        <li class='hmenu'>
+          <p class='hmenu'> 
+            <a href='settings.php' class='hmenu'>settings</a>
+          </p>
+        </li>
+        <li class='hmenu' style="clear:both;">
+          <p class='hmenu logout'><a id="exit" href="#">exit chat</a></p>
+      </li>
+      </ul>
+    </div>
+    
+  
+
+    <!-- content -->
+
+   <div id="wrapper">
+      <div id="menu">
+        <div style="clear:both"></div>
+          <p class="welcome">Welcome, <b></b></p>
+          <div style="clear:both"></div>
+      </div>
+       
+      <div id="chatbox" class="chatbox">Loading please wait....</div>
+      <div id="demo"></div>
+      <label for="group">Room</label><input type="text" id="group"><br />
+      <label for="message">Message</label><textarea id="message" rows="5" cols="40" name="value"></textarea>
+      <input type="submit" id="message-input-submit" value="Verstuur"  onclick="writeMessage()">
+      <input type="submit" id="message-read" value="read"  onclick="readMessage()">
+
+    </body>
+    </html>
