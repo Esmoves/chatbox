@@ -37,18 +37,7 @@ function readMessage(group) {
             // hier moet de functie die de array langsloopt
             // hier moet de div komen
             
-            
-            
-        }
-    };
-
-    xhttp.open("GET", SERVER_URL + "?" + dataString, true);
-    xhttp.send();
- 
-}
-
-function readmessage(){
-var idmessages = xhttp.responseText;
+            var idmessages = xhttp.responseText;
             correctids = idmessages.split(",");
             
             var i;
@@ -62,6 +51,13 @@ var idmessages = xhttp.responseText;
                 document.getElementById("chatbox").innerHTML = xhttp2.response;
             }
 
+            
+        }
+    };
+
+    xhttp.open("GET", SERVER_URL + "?" + dataString, true);
+    xhttp.send();
+ 
 }
 
 
