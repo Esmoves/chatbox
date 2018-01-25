@@ -11,32 +11,27 @@
     <meta name="author" content="A.E.Tijhoff" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
     <link rel="stylesheet" type="text/css" href="style.css">
- 
-
    <title>Chatt App</title>
 </head>
 <body>
 
    <div id="container" class="container">
-      <div class='titel'>
-
-      <header id="top-header">
+      <div class='titel' id="top-header">
         <h1>Chat App</h1>
-    </header>
       </div>
 
       <div id="chat-window" class="chatroom">
-        <p>Loading please wait</p>
+        <p>Loading please wait,...</p>
       </div>
 
       <div id="input-window">
-          <form name="chatroomForm"  id="chatroom-form" action="api.php" method="GET">
-          Chatroom: <input type="text" id="chatroom-input" name="key" required><br>
+          <form name="chatroomForm"  id="chatroom-form" onsubmit="return submitChatroomForm()">
+          <label for="chatroom-input">Chatroom: </label><input type="text" id="chatroom-input" name="key" required><br>
           <input class="btn" type="submit" id="chatroom-form-submit" value="Connect to room">
           </form>
           
-          <form name="messageForm" id="message_form" action="api.php" method="POST""> 
-          Your message: 
+          <form name="messageForm" id="message_form" onsubmit="return submitMessageForm()"> 
+          <label for="message">Your message: </label>
           <textarea  type="text" name="message" id="message" required></textarea><br>
           <input class="btn" id="message-input-submit" type="submit" name="submit" value="Submit" disabled="true">
           </form>
