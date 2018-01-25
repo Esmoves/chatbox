@@ -1,0 +1,43 @@
+<!-- JSON array -->
+[
+	{
+		"id": "1",
+		"mykey": "12345",
+		"messages" : "Hello World of Esmo!"		
+	}
+{
+		"id": "2",
+		"mykey": "12345",
+		"messages" : "Hello World of Thijs!"		
+	}
+	{
+		"id": "3",
+		"mykey": "12345",
+		"messages" : "Hello World of Riccardo!"		
+	}
+	{
+		"id": "4",
+		"mykey": "12345",
+		"messages" : "Hello World of Marrat!"		
+	}
+	{
+		"id": "5",
+		"mykey": "12345",
+		"messages" : "Hello World of Bart!"		
+	}
+	{
+		"id": "6",
+		"mykey": "12345",
+		"messages" : "Hello World of Rob!"		
+	}
+	{
+		"id": "7",
+		"mykey": "12345",
+		"messages" : "Bye Bye World of Esmo!"		
+	}
+	{
+		"id": "8",
+		"mykey": "12345",
+		"messages" : "Goodmorning World of Esmo!"		
+	}
+]
