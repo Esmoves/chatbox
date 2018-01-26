@@ -1,0 +1,13 @@
+Life demo of one index.php file that opens the json file onload at http://www.wijzijncodegorilla.nl/esmeraldatijhoff/chatapp/
+
+This chat is supposed to load messages from the databse.json upon entering the corresponding room, 
+in this case room 12345.
+The form in index.php activates a function in javascript, 
+wich sends to the api.php which gets its data from the json file 
+and sends it back to javascript. This file is supposed to fill the chatroom div in the index.php file.
+
+
+JSON file has room 12345, so choose this room.
+
+Api works only directly with a link, not with the JS file (yet)
+api.php?mykey=12345
