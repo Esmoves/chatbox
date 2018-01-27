@@ -1,3 +1,9 @@
+Case Develop a REST protocol for chatapplications Create a RESTfull API in PHP Document the API via swagger.io
+Technologies REST (http://www.restapitutorial.com/lessons/whatisrest.html) Documentation (https://swagger.io)
+3 Steps to success Tier 1: Fixed responses Tier 2: Flatfile datastructure Tier 3: SQL Database
+RESTful API https://app.swaggerhub.com/apis/RJK-Gorilla/GorillaChat1/1.0.0 (groepsafspraak)
+
+
 Life demo of one index.php file that opens the json file onload at http://www.wijzijncodegorilla.nl/esmeraldatijhoff/chatapp/
 
 This chat is supposed to load messages from the databse.json upon entering the corresponding room, 
@@ -5,9 +11,6 @@ in this case room 12345.
 The form in index.php activates a function in javascript, 
 wich sends to the api.php which gets its data from the json file 
 and sends it back to javascript. This file is supposed to fill the chatroom div in the index.php file.
-
-
-JSON file has room 12345, so choose this room.
 
 Api works only directly with a link, not with the JS file (yet)
 api.php?mykey=12345
