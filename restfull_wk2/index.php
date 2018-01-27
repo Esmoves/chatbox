@@ -13,7 +13,8 @@
     <link rel="stylesheet" type="text/css" href="style.css">
    <title>Chatt App</title>
 </head>
-<body>
+<body onload="showMessages()">
+
 
    <div id="container" class="container">
       <div class='titel' id="top-header">
@@ -21,24 +22,29 @@
       </div>
 
       <div id="chat-window" class="chatroom">
-        <p>Loading please wait,...</p>
-      </div>
 
+      </div>
+<!--
       <div id="input-window">
           <form name="chatroomForm"  id="chatroom-form" onsubmit="return submitChatroomForm()">
           <label for="chatroom-input">Chatroom: </label><input type="text" id="chatroom-input" name="key" required><br>
           <input class="btn" type="submit" id="chatroom-form-submit" value="Connect to room">
           </form>
-          
-          <form name="messageForm" id="message_form" onsubmit="return submitMessageForm()"> 
+          -->
+        
+         <form name="messageForm" id="message_form" method="POST" action="api.php">
+        
+   <!--     <form name="messageForm" id="message_form" method="POST" action="<?php //echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
+      -->
           <label for="message">Your message: </label>
-          <textarea  type="text" name="message" id="message" required></textarea><br>
-          <input class="btn" id="message-input-submit" type="submit" name="submit" value="Submit" disabled="true">
+          <textarea  type="text" name="messageText" id="messageText"></textarea><br>
+          <input class="btn" id="send" type="submit" name="submit" value="Submit" onclick="writeMessage">
           </form>
         </div>
 
       </div> <!-- end container -->
 
-      <script src="./script.js"></script>
+      <script src="./scriptSimple.js"></script>
+      
 </body>
 </html>

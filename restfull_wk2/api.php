@@ -1,84 +1,66 @@
 <?php
-/*
-Uit REST document: id, mykey, value, minimumid Get all messages with an id higher than or equal to minimumid)
-_Get api.php
-_Put api.php
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: GET, POST');
 
-Opdracht: bouw een API die communiceert tussen een HTML pagina met formulieren --> javascript verwerkings file --> api.php --> MySql database
-
-*/
-
-// GET stuur mykey mee en de id die je wilt laten
-// functie stuur bericht naar server via PUT en bewaar de id
-// functie haal bericht op met de id 
-// functie haal alle berichten op met id => minimumid
-// loop door alle berichten
-// haal bericht één voor één op in de loop 
-// geef verschillende class aan zelf verzonden en aan ontvangen messages
-
-// id moet erbij en werken met PUT en GET
-// filegetdocument? // _PATCH ? JSON parse
-
-
-// class maken met message bevat id, mykey en value
-// dan kun je steeds nieuwe messages aanmaken als een Json dus $message(id, mykey, value)
-
-class message {
-    private $id;
-    private $mykey;
-    private $value;
-
-        public function __construct($p_id, $p_mykey, $p_value) {
+class message
+{
+    public $id;
+    public $mykey;
+    public $value;
+    public function __construct($p_id, $p_mykey, $p_value) {
               $this->id = $p_id;
               $this->mykey = $p_mykey;
               $this->value = $p_value;
             }
 }
-
-
-if ($_SERVER["REQUEST_METHOD"] == "GET") {
-    if (empty($_GET["mykey"])) {
-      $roomErr = "Chatroom is required <br />";
-      echo $roomErr;
-    } 
-    else {
-      $myfile = fopen("database.json", "r") or die("Cannot open file: ".$my_file);
-      $data = json_decode(fread($myfile,filesize("database.json")));
-      fclose($myfile);
-
-      $minimumID = 1;
-      $requestedMessages = array();
-          
-      if(isset($_GET["minimumid"])){
-          $minimumID = $_GET["minimumid"];
-      }
       
-      $i;
-      for($i = 0; $i < count($data); $i++){
-          if($data[$i]->id>=$minimumID && $data[$i]->mykey==$_GET["mykey"]){
-          array_push($requestedMessages, $data[$i]);
-          }   
-             
-      }      echo json_encode($requestedMessages);
- }    
-}
-  
 
-if ($_SERVER["REQUEST_METHOD"] == "PUT") {
-    if (empty($_GET["mykey"])) {
-      $roomErr = "Chatroom is required";
-    } 
-    else if (empty($_GET["value"])) {
-      $valueErr = "ERROR. Message is required";
-    } 
-    else {
-      $myfile = fopen("database.json", "w") or die("Cannot open file: ".$my_file);
-      $data = json_decode(fread($myfile,filesize("database.json")));
-      fwrite($myfile, $data);
+  if ($_SERVER["REQUEST_METHOD"] == "POST"){
+      
+      if (isset($_POST["messageText"])){ 
+
+          $addmessage = array(
+          'id' => '9',
+          'mykey' => '12345',
+          'value'=> $_POST["messageText"]
+          );  
+      
+          //open or read json data
+          $myfile = fopen("database.json", "w") or die("Cannot open json file");
+          $data_results = file_get_contents('database.json');
+
+          $tempArray = json_decode($data_results);
+          //append additional json to json file
+          $tempArray[]=$addmessage;
+          $jsonData = json_encode($tempArray);
+
+          file_put_contents('database.json', $jsonData);
+
+          fclose($myfile);
       }
- }
+  }
 
-  
+if ($_SERVER["REQUEST_METHOD"] == "GET"){
+
+        $myfile = fopen("database.json", "r") or die("Unable to open file!");    
+        $messages = json_decode(fread($myfile, filesize("database.json")));
+        fclose($myfile);
+        
+        $minimumID = 1;
+        $requestedMessages = array();
+        
+        $i;
+        for($i = 0; $i < count($messages); $i++){
+            array_push($requestedMessages, $messages[$i]);
+        }        
+        echo json_encode($requestedMessages);
+    
+}
 
 
+/*  $myfile = fopen("database.json", "r") or die("Cannot open file: ".$my_file);
+      $data = json_decode($myfile, true); // decode the JSON into an associative array
+      // $data = json_decode(fread($myfile, filesize("database.json")));
+      echo '<pre>' . print_r($data, true) . '</pre>';
+      fclose($myfile);  */
 	?>
